@@ -5,7 +5,7 @@ import { Icon } from 'react-native-elements'
 
 import RestaurantsStack from './RestaurantsStack'
 import FavoritesStack from './FavoritesStack'
-import AccountStack from './AccountStack'
+import AccountsStack from './AccountsStack'
 import SearchStack from './SearchStack'
 import TopRestaurantsStack from './TopRestaurantsStack'
 
@@ -35,8 +35,8 @@ export default function navigation(){
                 options={{title:"Favoritos"}}
                 />
                 <Tab.Screen 
-                name='account' 
-                component={AccountStack}
+                name='accounts' 
+                component={AccountsStack}
                 options={{title:"Cuenta"}}
                 />
                 <Tab.Screen 
@@ -70,7 +70,7 @@ function screenOptions(route, color){
         case 'search':
             iconName='magnify'
             break
-        case 'account':
+        case 'accounts':
             iconName='home-outline'
             break
     }

@@ -1,15 +1,15 @@
 import React from 'react'
 import { createStackNavigator } from '@react-navigation/stack' 
-import Account from  '../screens/Account'
+import Accounts from '../screens/Account/Accounts'
 
 const Stack = createStackNavigator()
 
-export default function AccountStack(){
+export default function AccountsStack(){
     return(
         <Stack.Navigator>
             <Stack.Screen
-               name='account' 
-               component={Account}
+               name='accounts' 
+               component={Accounts}
                options={{title:"Cuenta"}}
             />
         </Stack.Navigator>
