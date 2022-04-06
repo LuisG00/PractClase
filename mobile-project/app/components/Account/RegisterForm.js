@@ -50,7 +50,7 @@ export default function RegsiterForm(props){
             .auth()
             .createUserWithEmailAndPassword(formData.email, formData.password)
             .then((response)=>{
-                    navigation.navigate('account')
+                    navigation.navigate('accounts')
             })
             .catch(()=>{
                 toastRef.current.show({
