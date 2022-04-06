@@ -4,6 +4,7 @@ import { Input, Icon, Button } from 'react-native-elements'
 import { useNavigation } from '@react-navigation/native'
 import { validateEmail } from '../../utils/Validation'
 import firebase from 'firebase'
+import Loading from '../Loading'
 
 export default function LoginForm(props) {
     const {toastRef} = props
@@ -33,6 +34,7 @@ export default function LoginForm(props) {
             .auth()
             .signInWithEmailAndPassword(formData.email, formData.password)
             .then(()=>{
+              <Loading isVisible = {true} text = 'Iniciando...'/>
               navigation.navigate('accounts')
             })
             .catch(()=>{
