@@ -27,7 +27,7 @@ export default function AccountOptions(props){
             case 'displayEmail':
                 setRenderComponent(
                     <ChangeDisplayEmailForm
-                    displayEmail={userInfo.email}
+                    displayEmail={userInfo.Email}
                     setShowModal={setShowModal}
                     toastRef={toastRef}
                     setReloadUserInfo= {setReloadUserInfo}

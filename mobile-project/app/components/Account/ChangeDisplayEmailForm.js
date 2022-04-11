@@ -32,9 +32,7 @@ export default function ChangeDisplayEmail(props){
                 setError('Email invalido.')
             }    else{
                 setIsLoading(true)
-                const update = {
-                    displayEmail: newDisplayEmail
-                }
+                const update = newDisplayEmail
                 firebase
                     .auth()
                     .currentUser.updateEmail(update)
