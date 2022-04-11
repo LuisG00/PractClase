@@ -4,6 +4,7 @@ import { Avatar } from "react-native-elements"
 import firebase from 'firebase'
 import * as Permissions from 'expo-permissions'
 import * as ImagePicker from 'expo-image-picker'
+import Loading from '../Loading'
 
 export default function InfoUser(props){
     const {userInfo: {photoURL, displayName, email, uid}, toastRef} = props
@@ -91,6 +92,7 @@ export default function InfoUser(props){
                     {displayName ? displayName : 'Invitado'}
                 </Text>
                 <Text>{email ? email : 'Entrada por SSO'}</Text>
+                <Loading isVisible = {isLoading} text = 'Cargando imagen...'/>
             </View>
         </View>
     )
