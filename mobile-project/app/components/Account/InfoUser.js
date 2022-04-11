@@ -1,4 +1,4 @@
-import React from "react"
+import React, {useState} from "react"
 import { StyleSheet, View, Text } from "react-native"
 import { Avatar } from "react-native-elements"
 import firebase from 'firebase'
@@ -7,7 +7,7 @@ import * as ImagePicker from 'expo-image-picker'
 
 export default function InfoUser(props){
     const {userInfo: {photoURL, displayName, email, uid}, toastRef} = props
-
+    const [isLoading,setIsLoading] = useState(false)
     const changeAvatar= async ()=>{
         const resultPermissions = await Permissions.askAsync(Permissions.CAMERA_ROLL)
         const resultPermissionsCamera = resultPermissions.permissions.mediaLibrary.status
@@ -35,9 +35,11 @@ export default function InfoUser(props){
                     visibilityTime: 3000,
                 })
             } else{
+                setIsLoading(true)
                 uploadImage(result.uri).then(()=>{
                     console.log('Imagen dentro de firebase')
                     updatePhotoUrl()
+                setIsLoading(false)
                 }).catch(()=>{
                     toastRef.current.show({
                         type: 'error',
@@ -78,6 +80,7 @@ export default function InfoUser(props){
                 rounded
                 size='large'
                 onPress={changeAvatar}
+                loading={isLoading}
                 containerStyle={styles.userInfoAvatar}
                 source={
                     photoURL ? {uri:photoURL} : require('../../../assets/img/avatar-default.jpg')
